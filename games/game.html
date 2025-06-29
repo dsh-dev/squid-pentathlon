@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squid Pentathlon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div class="game-intro" id="game-intro">
+        <h1>SQUID PENTATHLON</h1>
+        <button id="start-game">START GAME</button>
+    </div>
+    
+    <div class="game-background">
+        <!-- Decorative circles -->
+        <div class="circle-decoration circle-1"></div>
+        <div class="circle-decoration circle-2"></div>
+        <div class="circle-decoration circle-3"></div>
+        <div class="circle-decoration circle-4"></div>
+        
+        <!-- Decorative dolls -->
+        <div class="doll-decoration doll-1">👧</div>
+        <div class="doll-decoration doll-2">👧</div>
+        
+        <!-- Game 1: Code Cracker -->
+        <div id="game1" class="game-container">
+            <div class="game-number">1</div>
+            <h2>CODE CRACKER</h2>
+            <p>Guess a 2-digit number between 10-99</p>
+            <p>You have 5 tries</p>
+            <input type="number" id="guess-input" min="10" max="99" placeholder="00">
+            <button id="guess-button">SUBMIT</button>
+            <div class="hint-display" id="hint"></div>
+            <div class="attempts-display" id="attempts">ATTEMPTS: 5</div>
+            <div id="game1-result" class="result"></div>
+            <button id="next1" style="display:none;">NEXT GAME</button>
+        </div>
+        
+        <!-- Game 2: Memory Flip -->
+        <div id="game2" class="game-container">
+            <div class="game-number">2</div>
+            <h2>MEMORY FLIP</h2>
+            <p>Find all matching pairs</p>
+            <div class="cards-container" id="memory-board"></div>
+            <div id="game2-result" class="result"></div>
+            <button id="next2" style="display:none;">NEXT GAME</button>
+        </div>
+        
+        <!-- Game 3: Target Tap -->
+        <div id="game3" class="game-container">
+            <div class="game-number">3</div>
+            <h2>TARGET TAP</h2>
+            <p>Click the red target 3 times</p>
+            <p>It moves after each click!</p>
+            <div class="target-counter" id="target-counter">HITS: 0/3</div>
+            <div id="target" class="pulse"></div>
+            <div id="game3-result" class="result"></div>
+            <button id="next3" style="display:none;">NEXT GAME</button>
+        </div>
+        
+        <!-- Game 4: Lucky Door -->
+        <div id="game4" class="game-container">
+            <div class="game-number">4</div>
+            <h2>LUCKY DOOR</h2>
+            <p>Choose the correct door in 2 out of 3 sets</p>
+            
+            <div class="door-set">
+                <h3>Set 1</h3>
+                <div class="doors-container">
+                    <div class="door" data-set="1" data-door="1">🚪</div>
+                    <div class="door" data-set="1" data-door="2">🚪</div>
+                    <div class="door" data-set="1" data-door="3">🚪</div>
+                </div>
+            </div>
+            
+            <div class="door-set">
+                <h3>Set 2</h3>
+                <div class="doors-container">
+                    <div class="door" data-set="2" data-door="1">🚪</div>
+                    <div class="door" data-set="2" data-door="2">🚪</div>
+                    <div class="door" data-set="2" data-door="3">🚪</div>
+                </div>
+            </div>
+            
+            <div class="door-set">
+                <h3>Set 3</h3>
+                <div class="doors-container">
+                    <div class="door" data-set="3" data-door="1">🚪</div>
+                    <div class="door" data-set="3" data-door="2">🚪</div>
+                    <div class="door" data-set="3" data-door="3">🚪</div>
+                </div>
+            </div>
+            
+            <div class="door-results" id="door-results"></div>
+            <div id="game4-result" class="result"></div>
+            <button id="next4" style="display:none;">NEXT GAME</button>
+        </div>
+        
+        <!-- Game 5: Quick Quiz -->
+        <div id="game5" class="game-container">
+            <div class="game-number">5</div>
+            <h2>QUICK QUIZ</h2>
+            <p>Answer 3 out of 5 questions correctly</p>
+            
+            <div class="quiz-question">
+                <p>1. What is the shape of the guards' masks in Squid Game?</p>
+                <div class="quiz-option" data-question="1" data-answer="a">a) Circle</div>
+                <div class="quiz-option" data-question="1" data-answer="b">b) Triangle</div>
+                <div class="quiz-option" data-question="1" data-answer="c">c) Square</div>
+            </div>
+            
+            <div class="quiz-question">
+                <p>2. What color is the players' track suit?</p>
+                <div class="quiz-option" data-question="2" data-answer="a">a) Red</div>
+                <div class="quiz-option" data-question="2" data-answer="b">b) Blue</div>
+                <div class="quiz-option" data-question="2" data-answer="c">c) Green</div>
+            </div>
+            
+            <div class="quiz-question">
+                <p>3. What is the prize for winning Squid Game?</p>
+                <div class="quiz-option" data-question="3" data-answer="a">a) 10 million won</div>
+                <div class="quiz-option" data-question="3" data-answer="b">b) 1 billion won</div>
+                <div class="quiz-option" data-question="3" data-answer="c">c) 45.6 billion won</div>
+            </div>
+            
+            <div class="quiz-question">
+                <p>4. What is the first game played in Squid Game?</p>
+                <div class="quiz-option" data-question="4" data-answer="a">a) Tug of War</div>
+                <div class="quiz-option" data-question="4" data-answer="b">b) Red Light, Green Light</div>
+                <div class="quiz-option" data-question="4" data-answer="c">c) Marbles</div>
+            </div>
+            
+            <div class="quiz-question">
+                <p>5. How many players participate in Squid Game?</p>
+                <div class="quiz-option" data-question="5" data-answer="a">a) 100</div>
+                <div class="quiz-option" data-question="5" data-answer="b">b) 456</div>
+                <div class="quiz-option" data-question="5" data-answer="c">c) 1000</div>
+            </div>
+            
+            <button id="submit-quiz">SUBMIT ANSWERS</button>
+            <div id="game5-result" class="result"></div>
+            <button id="next5" style="display:none;">FINISH</button>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
